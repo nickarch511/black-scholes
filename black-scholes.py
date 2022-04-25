@@ -14,7 +14,7 @@ r - the continuously-compounded interest rate
 '''
 
 def black_scholes(s,t,K,sigma,r):
-    w = (r*t - sigma**2*t/2 - math.log(K/s))/(sigma*t**(1/2))
+    w = (r*t + sigma**2*t/2 - math.log(K/s))/(sigma*t**(1/2))
     c = s*pnorm.cdf(w) - K*math.e**(-r*t)*pnorm.cdf(w-sigma*t**(1/2))
     print("\n\nFor correct answers, ensure your args are in this order: s,t,K,sigma,r")
     print("The no-arbitrage cost of the call option is {}".format(c))
@@ -30,3 +30,6 @@ if __name__ == '__main__':
         print(e)
         print("\n\nFor correct answers, ensure your args are in this order: s,t,K,sigma,r")
         print("The arguments you passed in were {} and the above error was thrown\n\n".format(sys.argv))
+
+
+
