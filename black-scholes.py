@@ -18,8 +18,8 @@ def black_scholes(s,t,K,sigma,r):
     c = s*pnorm.cdf(w) - K*math.e**(-r*t)*pnorm.cdf(w-sigma*t**(1/2))
     print("\n\nFor correct answers, ensure your args are in this order: s,t,K,sigma,r")
     print("The no-arbitrage cost of the call option is {}".format(c))
-    print("The number of shares to sell for delta-hedging is {}\n\n".format(pnorm.cdf(w)))
-
+    print("The number of shares to sell for delta-hedging is {}".format(pnorm.cdf(w)))
+    print("The risk-neutral probability of the call expiring in the money is {}\n\n".format(pnorm.cdf(w-sigma*t**(1/2))))
 
 
 if __name__ == '__main__':
